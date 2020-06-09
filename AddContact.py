@@ -9,9 +9,10 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 from contact import Contact
+from contact import Title
 from phone import Phone
 from date import Date
-
+from date import Bdate
 
 class AddContact(unittest.TestCase):
 
@@ -43,27 +44,27 @@ class AddContact(unittest.TestCase):
         wd.find_element_by_name("address2").clear()
         wd.find_element_by_name("address2").send_keys(home_address)
 
-    def fill_aday(self, wd, aday="1", amonth="February", ayear="2003"):
+    def fill_aday(self, wd, date):
         wd.find_element_by_name("aday").click()
-        Select(wd.find_element_by_name("aday")).select_by_visible_text(aday)
+        Select(wd.find_element_by_name("aday")).select_by_visible_text(date.aday)
         wd.find_element_by_name("aday").click()
         wd.find_element_by_name("amonth").click()
-        Select(wd.find_element_by_name("amonth")).select_by_visible_text(amonth)
+        Select(wd.find_element_by_name("amonth")).select_by_visible_text(date.amonth)
         wd.find_element_by_name("amonth").click()
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
-        wd.find_element_by_name("ayear").send_keys(ayear)
+        wd.find_element_by_name("ayear").send_keys(date.ayear)
 
-    def fill_bday(self, wd, bday="2", bmonth="January", byear="1996"):
+    def fill_bday(self, wd, date):
         wd.find_element_by_name("bday").click()
-        Select(wd.find_element_by_name("bday")).select_by_visible_text(bday)
+        Select(wd.find_element_by_name("bday")).select_by_visible_text(date.bday)
         wd.find_element_by_name("bday").click()
         wd.find_element_by_name("bmonth").click()
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(bmonth)
+        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(date.bmonth)
         wd.find_element_by_name("bmonth").click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys(byear)
+        wd.find_element_by_name("byear").send_keys(date.byear)
 
     def fill_homepage(self, wd, homepage="mln.ru"):
         wd.find_element_by_name("homepage").click()
@@ -104,10 +105,10 @@ class AddContact(unittest.TestCase):
         wd.find_element_by_name("address").clear()
         wd.find_element_by_name("address").send_keys(company_address)
 
-    def fill_title(self, wd, title="TE"):
+    def fill_title(self, wd, contact):
         wd.find_element_by_name("title").click()
         wd.find_element_by_name("title").clear()
-        wd.find_element_by_name("title").send_keys(title)
+        wd.find_element_by_name("title").send_keys(contact.title)
 
     def fill_name(self, wd, contact):
         wd.find_element_by_name("firstname").click()
@@ -144,13 +145,13 @@ class AddContact(unittest.TestCase):
         self.login(wd)
         self.add_new(wd)
         self.fill_name(wd, Contact(firstname="Milena", middlename="Melikhova", lastname="Nurgaleeva", nickname="mln_mln"))
-        self.fill_title(wd)
+        self.fill_title(wd, Title(title="TE"))
         self.fill_company_info(wd)
         self.fill_phones(wd, Phone(home_num="8898889", mob_num="5585558", work_num="558555", fax_num="4477"))
         self.fill_mails(wd)
         self.fill_homepage(wd)
-        self.fill_bday(wd)
-        self.fill_aday(wd)
+        self.fill_bday(wd, Bdate(bday="2", bmonth="January", byear="1996"))
+        self.fill_aday(wd, Date(aday="1", amonth="February", ayear="2003"))
         self.fill_homeaddress(wd)
         self.fill_homephone(wd)
         self.fill_note(wd)

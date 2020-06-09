@@ -5,3 +5,7 @@ class Contact:
         self.middlename = middlename
         self.lastname = lastname
         self.nickname = nickname
+
+class Title:
+    def __init__(self, title):
+        self.title = title
