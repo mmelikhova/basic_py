@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # mmelikhova
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -7,7 +8,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
-
+from contact import Contact
 
 class AddContact(unittest.TestCase):
     def setUp(self):
@@ -19,7 +20,7 @@ class AddContact(unittest.TestCase):
         self.open_page(wd)
         self.login(wd)
         self.add_new(wd)
-        self.fill_name(wd)
+        self.fill_name(wd, Contact(firstname="Milena", middlename="Melikhova", lastname="Nurgaleeva", nickname="mln_mln"))
         self.fill_title(wd)
         self.fill_company_info(wd)
         self.fill_phones(wd)
@@ -124,19 +125,19 @@ class AddContact(unittest.TestCase):
         wd.find_element_by_name("title").clear()
         wd.find_element_by_name("title").send_keys(title)
 
-    def fill_name(self, wd, firstname="Milena", middlename="Melikhova", lastname="Nurgaleeva", nickname="mln_mln"):
+    def fill_name(self, wd, contact):
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(firstname)
+        wd.find_element_by_name("firstname").send_keys(contact.firstname)
         wd.find_element_by_name("middlename").click()
         wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys(middlename)
+        wd.find_element_by_name("middlename").send_keys(contact.middlename)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(lastname)
+        wd.find_element_by_name("lastname").send_keys(contact.lastname)
         wd.find_element_by_name("nickname").click()
         wd.find_element_by_name("nickname").clear()
-        wd.find_element_by_name("nickname").send_keys(nickname)
+        wd.find_element_by_name("nickname").send_keys(contact.nickname)
 
     def add_new(self, wd):
         wd.find_element_by_link_text("add new").click()
