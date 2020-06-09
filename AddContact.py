@@ -9,31 +9,15 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 from contact import Contact
+from phone import Phone
+from date import Date
+
 
 class AddContact(unittest.TestCase):
+
     def setUp(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
-
-    def test_add_contact(self):
-        wd = self.wd
-        self.open_page(wd)
-        self.login(wd)
-        self.add_new(wd)
-        self.fill_name(wd, Contact(firstname="Milena", middlename="Melikhova", lastname="Nurgaleeva", nickname="mln_mln"))
-        self.fill_title(wd)
-        self.fill_company_info(wd)
-        self.fill_phones(wd)
-        self.fill_mails(wd)
-        self.fill_homepage(wd)
-        self.fill_bday(wd)
-        self.fill_aday(wd)
-        self.fill_homeaddress(wd)
-        self.fill_homephone(wd)
-        self.fill_note(wd)
-        self.submit(wd)
-        self.return_homepage(wd)
-        self.logout(wd)
 
     def logout(self, wd):
         wd.find_element_by_link_text("Logout").click()
@@ -97,19 +81,19 @@ class AddContact(unittest.TestCase):
         wd.find_element_by_name("email3").clear()
         wd.find_element_by_name("email3").send_keys(mail3)
 
-    def fill_phones(self, wd, home_num="8898889", mob_num="5585558", work_num="558555", fax_num="4477"):
+    def fill_phones(self, wd, phone):
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(home_num)
+        wd.find_element_by_name("home").send_keys(phone.home_num)
         wd.find_element_by_name("mobile").click()
         wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys(mob_num)
+        wd.find_element_by_name("mobile").send_keys(phone.mob_num)
         wd.find_element_by_name("work").click()
         wd.find_element_by_name("work").clear()
-        wd.find_element_by_name("work").send_keys(work_num)
+        wd.find_element_by_name("work").send_keys(phone.work_num)
         wd.find_element_by_name("fax").click()
         wd.find_element_by_name("fax").clear()
-        wd.find_element_by_name("fax").send_keys(fax_num)
+        wd.find_element_by_name("fax").send_keys(phone.fax_num)
 
     def fill_company_info(self, wd, company="T-systems", company_address="8th Line VO"):
         wd.find_element_by_xpath("//div[@id='content']/form/label[7]").click()
@@ -154,13 +138,33 @@ class AddContact(unittest.TestCase):
     def open_page(self, wd):
         wd.get("http://localhost/addressbook/")
 
+    def test_add_contact(self):
+        wd = self.wd
+        self.open_page(wd)
+        self.login(wd)
+        self.add_new(wd)
+        self.fill_name(wd, Contact(firstname="Milena", middlename="Melikhova", lastname="Nurgaleeva", nickname="mln_mln"))
+        self.fill_title(wd)
+        self.fill_company_info(wd)
+        self.fill_phones(wd, Phone(home_num="8898889", mob_num="5585558", work_num="558555", fax_num="4477"))
+        self.fill_mails(wd)
+        self.fill_homepage(wd)
+        self.fill_bday(wd)
+        self.fill_aday(wd)
+        self.fill_homeaddress(wd)
+        self.fill_homephone(wd)
+        self.fill_note(wd)
+        self.submit(wd)
+        self.return_homepage(wd)
+        self.logout(wd)
+
     def is_element_present(self, how, what):
         try:
             self.wd.find_element(by=how, value=what)
         except NoSuchElementException as e:
             return False
         return True
-    
+
     def is_alert_present(self):
         try:
             self.wd.switch_to_alert()
