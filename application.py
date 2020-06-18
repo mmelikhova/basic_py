@@ -7,10 +7,6 @@ class Application:
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
 
-    def setUp(self):
-        self.wd = webdriver.Firefox()
-        self.wd.implicitly_wait(30)
-
     def logout(self):
         wd = self.wd
         wd.find_element_by_link_text("Logout").click()
