@@ -2,8 +2,8 @@
 # mmelikhova
 
 import pytest
-from contact import Contact
-from contact_app import Application
+from model.contact import Contact
+from fixture.contact_app import Application
 
 
 @pytest.fixture
