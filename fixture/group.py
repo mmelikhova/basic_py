@@ -1,5 +1,3 @@
-
-
 class GroupHelper:
 
     def __init__(self, app):
@@ -12,6 +10,7 @@ class GroupHelper:
     def create(self, group):
             # create new group
             wd = self.app.wd
+            self.app.open_gr_page()
             wd.find_element_by_name("new").click()
             wd.find_element_by_name("group_name").click()
             wd.find_element_by_name("group_name").clear()
