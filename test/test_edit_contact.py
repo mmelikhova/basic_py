@@ -10,7 +10,6 @@ def test_edit_contact(app):
                 bday="2", bmonth="May", byear="1988",
                 aday="1", amonth="July", ayear="2005",
                 title_text="Edited text")
-    app.open_page()
     app.session.login(login="admin", password="secret")
     app.contact.edit_contact()
     app.contact.fill_name(c)
