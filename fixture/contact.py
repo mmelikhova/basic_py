@@ -119,3 +119,14 @@ class ContactHelper:
     def add_new(self):
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
+
+    def edit_contact(self):
+        wd = self.app.wd
+        # click on edit button(pencil)
+        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+
+    def submit_edit_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_name("update").click()
+
+
