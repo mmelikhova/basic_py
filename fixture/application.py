@@ -13,6 +13,16 @@ class Application:
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
 
+    def destroy(self):
+        self.wd.quit()
+
+    def is_valid(self):
+        try:
+            self.wd.current_url()
+            return True
+        except:
+            return False
+
     def open_gr_page(self):
         # open page
         wd = self.wd
@@ -26,5 +36,4 @@ class Application:
          wd = self.wd
          wd.find_element_by_link_text("home page").click()
 
-    def destroy(self):
-        self.wd.quit()
+
