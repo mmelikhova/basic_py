@@ -15,7 +15,6 @@ def test_add_contact(app):
                           aday="1", amonth="February", ayear="2003",
                           title_text="text")
         app.open_page()
-        app.session.login(login="admin", password="secret")
         app.contact.add_new()
         app.contact.fill_name(c)
         app.contact.fill_title(c)
@@ -30,6 +29,6 @@ def test_add_contact(app):
         app.contact.fill_note(c)
         app.contact.submit()
         app.return_homepage()
-        app.session.logout()
+
 
 
