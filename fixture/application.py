@@ -8,7 +8,6 @@ class Application:
 
     def __init__(self):
         self.wd = webdriver.Firefox()
-        self.wd.implicitly_wait(5)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
@@ -23,14 +22,10 @@ class Application:
         except:
             return False
 
-    def open_gr_page(self):
-        # open page
-        wd = self.wd
-        wd.get("http://localhost/addressbook/group.php")
-
     def open_page(self):
         wd = self.wd
-        wd.get("http://localhost/addressbook/")
+        if not(wd.current_url == "http://localhost/addressbook/"):
+            wd.get("http://localhost/addressbook/")
 
     def return_homepage(self):
          wd = self.wd
