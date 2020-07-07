@@ -25,6 +25,7 @@ def test_edit_contact(app):
         app.contact.fill_note(c)
         app.contact.submit()
         app.return_homepage()
+    old_contacts = app.contact.get_contact_list()
     c=Contact(note="note", phone2="66", home_address="Edited 15", homepage="Edited.ru",
               middlename="EDITED", lastname="EDITED", nickname="Edited", firstname="EDITED",
               company_address="VO Edited line", company="T-systems Edited",
@@ -33,6 +34,7 @@ def test_edit_contact(app):
               bday="2", bmonth="May", byear="1988",
               aday="1", amonth="July", ayear="2005",
               title_text="Edited text")
+    app.contact.id = old_contacts[0].cid
     app.contact.edit_contact()
     app.contact.fill_name(c)
     app.contact.fill_title(c)
@@ -47,6 +49,10 @@ def test_edit_contact(app):
     app.contact.fill_note(c)
     app.contact.submit_edit_contact()
     app.return_homepage()
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) == len(new_contacts)
+    old_contacts[0] = c
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
 
 
 
