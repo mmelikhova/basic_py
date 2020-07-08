@@ -9,8 +9,8 @@ class Contact:
                  nickname=None,
                  company_address=None, company=None,
                  ayear=None, amonth=None, aday=None, byear=None, bmonth=None, bday=None,
-                 home_num=None, mob_num=None, work_num=None, fax_num=None, cid=None):
-        self.cid=cid
+                 home_num=None, mob_num=None, work_num=None, fax_num=None, id=None):
+        self.id = id
         self.firstname=firstname
         self.middlename=middlename
         self.lastname=lastname
@@ -37,17 +37,17 @@ class Contact:
         self.byear = byear
 
     def __repr__(self):
-        return "%s: %s: %s" % (self.cid, self.lastname, self.firstname)
+        return "%s: %s: %s" % (self.id, self.lastname, self.firstname)
 
     def __eq__(self, other):
-        return ((self.cid is None
-                or other.cid is None
-                or self.cid == other.сid)
+        return (self.id is None
+                or other.id is None
+                or self.id == other.id
                 and self.lastname == other.lastname
                 and self.firstname == other.firstname)
 
     def id_or_max(self):
-        if self.cid:
-            return int(self.cid)
+        if self.id:
+            return int(self.id)
         else:
             return maxsize
