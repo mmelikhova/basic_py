@@ -134,8 +134,14 @@ class ContactHelper:
         wd.find_element_by_link_text("add new").click()
         self.contact_cache=None
 
-    def edit_contact(self):
+    def edit_contact_by_index(self, id):
         wd = self.app.wd
+        # click on edit button(pencil)
+        wd.find_element_by_css_selector("a[href$='edit.php?id="+str(id)+"']").click()
+        self.contact_cache=None
+
+    def edit_contact(self):
+        wd=self.app.wd
         # click on edit button(pencil)
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
         self.contact_cache=None
@@ -146,11 +152,18 @@ class ContactHelper:
         self.contact_cache=None
 
     def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        self.select_contact_by_index(index)
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         self.contact_cache=None
+
+    def select_contact_by_index(self, index):
+        wd=self.app.wd
+        wd.find_elements_by_name("selected[]")[index].click()
 
     def delete_all_contact(self):
         wd = self.app.wd
@@ -178,7 +191,5 @@ class ContactHelper:
                 id = sector[0].find_element_by_name("selected[]").get_attribute("id")
                 self.contact_cache.append(Contact(id=id, firstname=firstname, lastname=lastname))
             return list(self.contact_cache)
-
-
 
 
