@@ -28,6 +28,7 @@ def test_delete_all_contact(app):
         app.return_homepage()
     old_contacts=app.contact.get_contact_list()
     app.contact.delete_all_contact()
+    app.return_homepage()
     new_contacts=app.contact.get_contact_list()
     assert len(old_contacts) - len(new_contacts) == len(old_contacts)
     old_contacts.clear()
