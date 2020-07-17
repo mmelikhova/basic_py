@@ -190,10 +190,13 @@ class ContactHelper:
                 firstname = sector[1].text
                 lastname = sector[2].text
                 id = sector[0].find_element_by_name("selected[]").get_attribute("id")
-                all_phones = sector[5].text.splitlines()
+                company_address = sector[3].text
+                all_mails = sector[4].text
+                all_phones = sector[5].text
                 self.contact_cache.append(Contact(id=id, firstname=firstname, lastname=lastname,
-                                                  home_num=all_phones[0], mob_num=all_phones[1],
-                                                  work_num=all_phones[2], phone2=all_phones[3]))
+                                                  company_address=company_address,
+                                                  all_mails_from_homepage= all_mails,
+                                                  all_phones_from_homepage = all_phones))
             return list(self.contact_cache)
 
     def view_contact_by_id(self, id):
@@ -222,11 +225,18 @@ class ContactHelper:
         firstname = wd.find_element_by_name("firstname").get_attribute("value")
         lastname = wd.find_element_by_name("lastname").get_attribute("value")
         id = wd.find_element_by_name("id").get_attribute("value")
+        company_address = wd.find_element_by_name("address").text
+        mail1 = wd.find_element_by_name("email").get_attribute("value")
+        mail2=wd.find_element_by_name("email2").get_attribute("value")
+        mail3=wd.find_element_by_name("email3").get_attribute("value")
         home_num = wd.find_element_by_name("home").get_attribute("value")
         mob_num=wd.find_element_by_name("mobile").get_attribute("value")
         work_num=wd.find_element_by_name("work").get_attribute("value")
         phone2=wd.find_element_by_name("phone2").get_attribute("value")
-        return Contact(firstname=firstname, lastname=lastname, id=id, home_num=home_num,
+        return Contact(firstname=firstname, lastname=lastname, id=id,
+                       company_address = company_address,
+                       mail1=mail1, mail2=mail2, mail3=mail3,
+                       home_num=home_num,
                        mob_num=mob_num, work_num=work_num, phone2=phone2)
 
     def get_contact_info_from_viewpage(self, index):
