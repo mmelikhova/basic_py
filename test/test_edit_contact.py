@@ -37,7 +37,7 @@ def test_edit_some_contact(app):
               aday="1", amonth="July", ayear="2005",
               title_text="Edited text")
     c.id = old_contacts[index].id
-    app.contact.edit_contact_by_index(c.id)
+    app.contact.edit_contact_by_id(c.id)
     app.contact.fill_name(c)
     app.contact.fill_title(c)
     app.contact.fill_company_info(c)

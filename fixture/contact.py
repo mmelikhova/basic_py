@@ -134,7 +134,7 @@ class ContactHelper:
         wd.find_element_by_link_text("add new").click()
         self.contact_cache=None
 
-    def edit_contact_by_index(self, id):
+    def edit_contact_by_id(self, id):
         wd = self.app.wd
         # click on edit button(pencil)
         wd.find_element_by_css_selector("a[href$='edit.php?id="+str(id)+"']").click()
