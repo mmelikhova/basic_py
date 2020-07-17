@@ -38,6 +38,11 @@ class SessionHelper:
 
     def if_logged_in_as(self, login):
         wd = self.app.wd
-        return wd.find_element_by_xpath("//div/div[1]/form/b").text == "("+login+")"
+        return self.get_logged_user() == login
+
+    def get_logged_user(self):
+        wd=self.app.wd
+        return wd.find_element_by_xpath("//div/div[1]/form/b").text[1:-1]
+
 
 
