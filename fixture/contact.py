@@ -10,7 +10,7 @@ class ContactHelper:
 
     def submit(self):
         wd = self.app.wd
-        wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+        wd.find_element_by_name("submit").click()
         self.contact_cache=None
 
     def fill_note(self, contact):
@@ -37,10 +37,10 @@ class ContactHelper:
     def fill_aday(self, contact):
         wd = self.app.wd
         wd.find_element_by_name("aday").click()
-        Select(wd.find_element_by_name("aday")).select_by_visible_text(contact.aday)
+        Select(wd.find_element_by_name("aday")).select_by_value(contact.aday)
         wd.find_element_by_name("aday").click()
         wd.find_element_by_name("amonth").click()
-        Select(wd.find_element_by_name("amonth")).select_by_visible_text(contact.amonth)
+        Select(wd.find_element_by_name("amonth")).select_by_value(contact.amonth)
         wd.find_element_by_name("amonth").click()
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
@@ -50,10 +50,10 @@ class ContactHelper:
     def fill_bday(self, contact):
         wd = self.app.wd
         wd.find_element_by_name("bday").click()
-        Select(wd.find_element_by_name("bday")).select_by_visible_text(contact.bday)
+        Select(wd.find_element_by_name("bday")).select_by_value(contact.bday)
         wd.find_element_by_name("bday").click()
         wd.find_element_by_name("bmonth").click()
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.bmonth)
+        Select(wd.find_element_by_name("bmonth")).select_by_value(contact.bmonth)
         wd.find_element_by_name("bmonth").click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()

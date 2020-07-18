@@ -17,7 +17,7 @@ class Application:
 
     def is_valid(self):
         try:
-            self.wd.current_url()
+            self.wd.current_url("http://localhost/addressbook/")
             return True
         except:
             return False
@@ -29,6 +29,6 @@ class Application:
 
     def return_homepage(self):
          wd = self.wd
-         wd.find_element_by_link_text("home").click()
+         wd.find_element_by_xpath("/html/body/div/div[3]/ul/li[1]/a").click()
 
 
