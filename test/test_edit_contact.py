@@ -33,8 +33,8 @@ def test_edit_some_contact(app):
               company_address="VO Edited line", company="T-systems Edited",
               home_num="288869", mob_num="52555", work_num="5646546", fax_num="4477",
               mail1="Edited@mln.com", mail2="Edited@mln.com", mail3="Edited@mln.com",
-              bday="2", bmonth="May", byear="1988",
-              aday="1", amonth="July", ayear="2005",
+              bday=str("2"), bmonth="May", byear="1988",
+              aday=str("1"), amonth="July", ayear="2005",
               title_text="Edited text")
     c.id = old_contacts[index].id
     app.contact.edit_contact_by_id(c.id)
