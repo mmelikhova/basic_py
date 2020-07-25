@@ -28,9 +28,9 @@ def random_string(prefix, maxlen):
     return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
 
 
-testdata=[Group(groupname="", header_text="", footer_text="")] + [
-    Group(groupname=random_string("name", 10), header_text=random_string("head", 20),
-          footer_text=random_string("foot", 20))
+testdata=[Group(name="", header="", footer="")] + [
+    Group(name=random_string("name", 10), header=random_string("head", 20),
+          footer=random_string("foot", 20))
     for i in range(n)
 ]
 

@@ -13,7 +13,7 @@ except getopt.GetoptError as error:
     getopt.usage()
     sys.exit(2)
 
-n = 5
+n = 2
 f = "data/contacts.json"
 
 for o, a in opts:
@@ -28,8 +28,10 @@ def random_string(prefix, maxlen):
     return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
 
 
-month_list=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+bmonth_list=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
             'November', 'December']
+amonth_list=['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october',
+            'november', 'december']
 
 
 testdata= [Contact(note=random_string("note", 20),
@@ -44,9 +46,9 @@ testdata= [Contact(note=random_string("note", 20),
                                              work_num=random_string("workph", 10), fax_num=random_string("fax", 10),
                                              mail1=random_string("1mail", 20), mail2=random_string("2mail", 20),
                                              mail3=random_string("3mail", 20),
-                                             bday=str(random.randrange(0, 31, 1)), bmonth=random.choice(month_list),
+                                             bday=str(random.randrange(0, 31, 1)), bmonth=random.choice(bmonth_list),
                                              byear=str(random.randrange(1900, 2020, 1)),
-                                             aday=str(random.randrange(0, 31, 1)), amonth=random.choice(month_list),
+                                             aday=str(random.randrange(0, 31, 1)), amonth=random.choice(amonth_list),
                                              ayear=str(random.randrange(1900, 2020, 1)),
                                              title_text=random_string("title", 10))
                                      for i in range(n)
