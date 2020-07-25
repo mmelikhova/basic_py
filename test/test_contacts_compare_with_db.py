@@ -7,6 +7,7 @@ def test_compare_contacts_home_and_db(app, db):
         create_if_list_is_empty(app)
     contacts_from_homepage = sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
     contacts_from_db = sorted(db.get_contact_list(), key=Contact.id_or_max)
+    assert len(contacts_from_db) == len(contacts_from_homepage)
     for i in range(len(contacts_from_db)):
         contacts_from_db[i].all_phones_from_db = merge_phones_like_homepage(contacts_from_db[i])
         contacts_from_db[i].all_mails_from_db = merge_mails_like_homepage(contacts_from_db[i])
