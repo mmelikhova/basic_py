@@ -1,44 +1,17 @@
 from model.group import Group
-from random import randrange
-
-#def test_edit_first_group(app):
-    #if app.group.count() == 0:
-        #app.group.create(Group(groupname="for_full_edition"))
-    #old_groups=app.group.get_group_list()
-    #app.group.modify_first_group(Group(groupname="edited_group", header_text="miu", footer_text="miu"))
-    #new_groups=app.group.get_group_list()
-    #assert len(old_groups)  == len(new_groups)
+import random
 
 
-def test_edit_name_group(app):
-    if app.group.count() == 0:
-        app.group.create(Group(groupname="for_name_edition"))
-    old_groups = app.group.get_group_list()
-    index=randrange(len(old_groups))
-    group = Group(groupname="edited_group_name")
-    group.id = old_groups[index].id
-    app.group.modify_group_by_index(group, index)
-    assert len(old_groups) == app.group.count()
-    new_groups = app.group.get_group_list()
-    old_groups[index] = group
+def test_edit_group(app, db, check_ui):
+    if len(db.get_group_list()) == 0:
+        app.group.create(Group(name="for_edit"))
+    old_groups = db.get_group_list()
+    group = random.choice(old_groups)
+    g = Group(name="edited", header="edited", footer='edited_too')
+    app.group.modify_group_by_id(g, group.id)
+    new_groups = db.get_group_list()
+    old_groups.remove(group)
+    old_groups.append(g)
     assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
-
-
-#def test_edit_header_1group(app):
-    #if app.group.count() == 0:
-        #app.group.create(Group(groupname="for_header_edition", header_text="miu_for edition"))
-    #old_groups=app.group.get_group_list()
-    #app.group.modify_first_group(Group(header_text="edited_header_text"))
-   # new_groups=app.group.get_group_list()
-    #assert len(old_groups) == len(new_groups)
-
-
-#def test_edit_footer_1group(app):
-    #if app.group.count() == 0:
-        #app.group.create(Group(groupname="for_header_edition", header_text="miu_for edition",
-                               #footer_text="miu_for edition"))
-    #old_groups=app.group.get_group_list()
-   # app.group.modify_first_group(Group(footer_text="edited_footer_text"))
-   # new_groups=app.group.get_group_list()
-    #assert len(old_groups) == len(new_groups)
-
+    if check_ui:
+        assert sorted(new_groups, key=Group.id_or_max) == sorted(app.group.get_group_list(), key=Group.id_or_max)
