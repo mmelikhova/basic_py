@@ -198,8 +198,8 @@ class ContactHelper:
             self.contact_cache = []
             for row in wd.find_elements_by_name('entry'):
                 sector = row.find_elements_by_tag_name("td")
-                firstname = sector[1].text
-                lastname = sector[2].text
+                lastname = sector[1].text
+                firstname = sector[2].text
                 id = sector[0].find_element_by_name("selected[]").get_attribute("id")
                 company_address = sector[3].text
                 all_mails = sector[4].text
