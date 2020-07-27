@@ -1,44 +1,44 @@
 [
   {
     "py/object": "model.group.Group",
-    "groupname": "",
-    "header_text": "",
-    "footer_text": "",
+    "name": "",
+    "header": "",
+    "footer": "",
     "id": null
   },
   {
     "py/object": "model.group.Group",
-    "groupname": "nameq0H",
-    "header_text": "head%bWjnknq/ Jl 7",
-    "footer_text": "foot]3]87,*n[TB",
+    "name": "named=7W IX7>",
+    "header": "head9OjhtFVW8}  ~=#",
+    "footer": "footx o-bM<zN5HxC",
     "id": null
   },
   {
     "py/object": "model.group.Group",
-    "groupname": "nameAL ?\\",
-    "header_text": "head>",
-    "footer_text": "foot_zGMjg5_wk!pp*y   ",
+    "name": "name",
+    "header": "head)f$o#+eH.a>kDR",
+    "footer": "foot0}re<5R( X' bz",
     "id": null
   },
   {
     "py/object": "model.group.Group",
-    "groupname": "name Nj",
-    "header_text": "headB",
-    "footer_text": "footw^9;6 Dk(  ",
+    "name": "name{#peHfaRz",
+    "header": "head`;1>p oiQ",
+    "footer": "foot!T 3^F",
     "id": null
   },
   {
     "py/object": "model.group.Group",
-    "groupname": "name s $",
-    "header_text": "head]<4mv$*",
-    "footer_text": "footv YK )ZsYKUN\\$4Y",
+    "name": "name8%? aSb",
+    "header": "headL%",
+    "footer": "footF_{qVPZ,3 ",
     "id": null
   },
   {
     "py/object": "model.group.Group",
-    "groupname": "nameu y$9=E)3",
-    "header_text": "head,y>x Xj?n/^g42&S ",
-    "footer_text": "footi/o",
+    "name": "name0xP 73bYy",
+    "header": "headS rh&-e HYv",
+    "footer": "footO9%zWBP1.( iq=w",
     "id": null
   }
 ]

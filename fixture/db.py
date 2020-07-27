@@ -41,5 +41,6 @@ class DbFixture:
             cursor.close()
         return contact_list
 
+
     def destroy(self):
         self.connection.close()
