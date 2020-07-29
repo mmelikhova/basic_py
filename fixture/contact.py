@@ -264,6 +264,7 @@ class ContactHelper:
 
     def add_contact_to_group_by_ids(self, contact, group):
         wd=self.app.wd
+        self.app.homepage()
         wd.find_element_by_id(str(contact.id)).click()
         wd.find_element_by_name("to_group").click()
         Select(wd.find_element_by_name("to_group")).select_by_value(group.id)

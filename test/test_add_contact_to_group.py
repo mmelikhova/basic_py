@@ -7,42 +7,27 @@ orm = ORMFixture(host= '127.0.0.1', name = 'addressbook', user = 'root', passwor
 
 
 def test_add_contact_to_group(app, db):
-    if len(db.get_contact_list()) == 0:
+    if len(orm.get_contacts_not_in_any_group()) == 0: #проверка: если список контактов без группы пуст - создать
         create_if_list_is_empty(app)
-    if len(db.get_group_list()) == 0:
-        app.group.create(Group(name="xxx"))
-    contacts=db.get_contact_list()
+    if len(orm.get_groups_without_contacts()) == 0: #проверка: если пустых групп нет - создать
+        app.group.create(Group(name="WOW_WOW"))
+
+    contacts=orm.get_contacts_not_in_any_group() #берем контакт из списка без групп
     contact=random.choice(contacts)
-    groups=db.get_group_list()
+    groups=orm.get_groups_without_contacts() #группа из пустых групп
     group=random.choice(groups)
     app.contact.add_contact_to_group_by_ids(contact, group)
     #validation
     contacts_in_group = orm.get_contacts_in_group(Group(id=group.id))
-    if contact not in contacts_in_group:
+    if (contact not in contacts_in_group) or (group in list(orm.get_groups_without_contacts())):
         raise ValueError("ERROR: contact %s not found in group %s" % contact % group)
 
 
+
 def create_if_list_is_empty(app):
-    c=Contact(note="note", phone2="22", home_address="vit57", homepage="mln.ru",
-              middlename="To_Group", lastname="To_Group", nickname="mln_mln", firstname="Jecka",
-              company_address="VO 9th line", company="T-systems",
-              home_num="8898889", mob_num="5585558", work_num="558555", fax_num="4477",
-              mail1="vas@mln.com", mail2="orbit@mln.com", mail3="mln2@mln.com",
-              bday="2", bmonth="January", byear="1996",
-              aday="1", amonth="february", ayear="2003",
-              title_text="text")
+    c=Contact(middlename="To_Group", lastname="To_Group", nickname="mln_mln", firstname="Jecka")
     app.open_page()
     app.contact.add_new()
     app.contact.fill_name(c)
-    app.contact.fill_title(c)
-    app.contact.fill_company_info(c)
-    app.contact.fill_phones(c)
-    app.contact.fill_mails(c)
-    app.contact.fill_homepage(c)
-    app.contact.fill_bday(c)
-    app.contact.fill_aday(c)
-    app.contact.fill_homeaddress(c)
-    app.contact.fill_homephone(c)
-    app.contact.fill_note(c)
     app.contact.submit()
     app.return_homepage()
