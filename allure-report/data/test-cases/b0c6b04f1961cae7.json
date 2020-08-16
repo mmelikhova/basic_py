@@ -1,0 +1,211 @@
+{
+  "uid" : "b0c6b04f1961cae7",
+  "name" : "test_add_group[None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz]",
+  "fullName" : "test.AddGroup#test_add_group",
+  "historyId" : "49645fefb45ab1f6b3b15fa1f1716d33",
+  "time" : {
+    "start" : 1597426937485,
+    "stop" : 1597426938894,
+    "duration" : 1409
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert [89: WOW_WOW:... footer2, ...] == [89: WOW_WOW:... footer2, ...]\n  Left contains one more item: None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz\n  Use -v to get the full diff",
+  "statusTrace" : "app = <fixture.application.Application object at 0x0489E1D8>, db = <fixture.db.DbFixture object at 0x0486AF28>\njson_groups = None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz, check_ui = False\n\n    def test_add_group(app, db, json_groups, check_ui):\n        group=json_groups\n        with allure.step('Given a group list'):\n            old_groups=db.get_group_list()\n        with allure.step('When I add a group %s to the list' % group):\n            app.group.create(group)\n        with allure.step('Then the new group list is equal to the old list with the added group'):\n            new_groups=db.get_group_list()\n            old_groups.append(group)\n>           assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\nE           AssertionError: assert [89: WOW_WOW:... footer2, ...] == [89: WOW_WOW:... footer2, ...]\nE             Left contains one more item: None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz\nE             Use -v to get the full diff\n\ntest\\AddGroup.py:17: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "app",
+    "time" : {
+      "start" : 1597426937332,
+      "stop" : 1597426937483,
+      "duration" : 151
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "check_ui",
+    "time" : {
+      "start" : 1597426937483,
+      "stop" : 1597426937483,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "db",
+    "time" : {
+      "start" : 1597426921414,
+      "stop" : 1597426921427,
+      "duration" : 13
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "stop",
+    "time" : {
+      "start" : 1597426921414,
+      "stop" : 1597426921414,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert [89: WOW_WOW:... footer2, ...] == [89: WOW_WOW:... footer2, ...]\n  Left contains one more item: None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz\n  Use -v to get the full diff",
+    "statusTrace" : "app = <fixture.application.Application object at 0x0489E1D8>, db = <fixture.db.DbFixture object at 0x0486AF28>\njson_groups = None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz, check_ui = False\n\n    def test_add_group(app, db, json_groups, check_ui):\n        group=json_groups\n        with allure.step('Given a group list'):\n            old_groups=db.get_group_list()\n        with allure.step('When I add a group %s to the list' % group):\n            app.group.create(group)\n        with allure.step('Then the new group list is equal to the old list with the added group'):\n            new_groups=db.get_group_list()\n            old_groups.append(group)\n>           assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\nE           AssertionError: assert [89: WOW_WOW:... footer2, ...] == [89: WOW_WOW:... footer2, ...]\nE             Left contains one more item: None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz\nE             Use -v to get the full diff\n\ntest\\AddGroup.py:17: AssertionError",
+    "steps" : [ {
+      "name" : "Given a group list",
+      "time" : {
+        "start" : 1597426937485,
+        "stop" : 1597426937488,
+        "duration" : 3
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : false,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "When I add a group None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz to the list",
+      "time" : {
+        "start" : 1597426937488,
+        "stop" : 1597426938889,
+        "duration" : 1401
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : false,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Then the new group list is equal to the old list with the added group",
+      "time" : {
+        "start" : 1597426938889,
+        "stop" : 1597426938893,
+        "duration" : 4
+      },
+      "status" : "failed",
+      "statusMessage" : "AssertionError: assert [89: WOW_WOW:... footer2, ...] == [89: WOW_WOW:... footer2, ...]\n  Left contains one more item: None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz\n  Use -v to get the full diff\n",
+      "statusTrace" : "  File \"C:\\Users\\mnurgale\\PycharmProjects\\basic_py\\test\\AddGroup.py\", line 17, in test_add_group\n    assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : true,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "hasContent" : true,
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ {
+    "name" : "db::fin",
+    "time" : {
+      "start" : 1597426943441,
+      "stop" : 1597426943441,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "stop::fin",
+    "time" : {
+      "start" : 1597426943444,
+      "stop" : 1597426944680,
+      "duration" : 1236
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test"
+  }, {
+    "name" : "suite",
+    "value" : "AddGroup"
+  }, {
+    "name" : "host",
+    "value" : "SPBNB-PRC1220"
+  }, {
+    "name" : "thread",
+    "value" : "14396-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test.AddGroup"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "json_groups",
+    "value" : "None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "b0c6b04f1961cae7.json",
+  "parameterValues" : [ "None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz" ]
+}

@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Aug 14 20:42:19 MSK 2020","Fri Aug 14 20:42:20 MSK 2020","1260","test","AddGroup","","","","test_add_group[None: name{#peHfaRz: head`;1>p oiQ: foot!T 3^F]",""
+"failed","Fri Aug 14 20:42:17 MSK 2020","Fri Aug 14 20:42:18 MSK 2020","1409","test","AddGroup","","","","test_add_group[None: name: head)f$o#+eH.a>kDR: foot0}re<5R( X' bz]",""
+"passed","Fri Aug 14 20:42:13 MSK 2020","Fri Aug 14 20:42:15 MSK 2020","1827","test","AddGroup","","","","test_add_group[None: : : ]",""
+"passed","Fri Aug 14 20:42:22 MSK 2020","Fri Aug 14 20:42:23 MSK 2020","1418","test","AddGroup","","","","test_add_group[None: name0xP 73bYy: headS rh&-e HYv: footO9%zWBP1.( iq=w]",""
+"passed","Fri Aug 14 20:42:15 MSK 2020","Fri Aug 14 20:42:17 MSK 2020","1459","test","AddGroup","","","","test_add_group[None: named=7W IX7>: head9OjhtFVW8}  ~=#: footx o-bM<zN5HxC]",""
+"passed","Fri Aug 14 20:42:20 MSK 2020","Fri Aug 14 20:42:21 MSK 2020","1365","test","AddGroup","","","","test_add_group[None: name8%? aSb: headL%: footF_{qVPZ,3 ]",""
